@@ -1,0 +1,110 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta
+      name="description"
+      content="一个轻量、响应式、无需安装依赖的网页版俄罗斯方块。"
+    />
+    <title>CST 俄罗斯方块</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <main class="game-shell">
+      <header class="hero">
+        <div>
+          <p class="eyebrow">CLASSIC BLOCK PUZZLE</p>
+          <h1>CST <span>俄罗斯方块</span></h1>
+        </div>
+        <button class="soundless-badge" type="button" disabled>离线可玩</button>
+      </header>
+
+      <section class="game-layout" aria-label="俄罗斯方块游戏">
+        <div class="board-frame">
+          <canvas
+            id="game-board"
+            width="300"
+            height="600"
+            aria-label="俄罗斯方块棋盘"
+          ></canvas>
+
+          <div id="game-overlay" class="overlay">
+            <p id="overlay-kicker" class="overlay-kicker">准备好了吗？</p>
+            <h2 id="overlay-title">开始游戏</h2>
+            <p id="overlay-copy">排列方块、填满横行并挑战最高分。</p>
+            <button id="overlay-action" class="primary-button" type="button">
+              开始
+            </button>
+          </div>
+        </div>
+
+        <aside class="sidebar">
+          <section class="panel stats-panel" aria-label="游戏数据">
+            <div class="stat">
+              <span>分数</span>
+              <strong id="score">0</strong>
+            </div>
+            <div class="stat">
+              <span>消行</span>
+              <strong id="lines">0</strong>
+            </div>
+            <div class="stat">
+              <span>等级</span>
+              <strong id="level">1</strong>
+            </div>
+            <div class="stat wide">
+              <span>最高分</span>
+              <strong id="high-score">0</strong>
+            </div>
+          </section>
+
+          <section class="panel next-panel">
+            <span class="panel-label">下一个</span>
+            <canvas
+              id="next-piece"
+              width="120"
+              height="120"
+              aria-label="下一个方块"
+            ></canvas>
+          </section>
+
+          <section class="panel controls-panel">
+            <span class="panel-label">键盘操作</span>
+            <dl>
+              <div><dt>移动</dt><dd>← →</dd></div>
+              <div><dt>旋转</dt><dd>↑ / Z</dd></div>
+              <div><dt>软降</dt><dd>↓</dd></div>
+              <div><dt>硬降</dt><dd>空格</dd></div>
+              <div><dt>暂停</dt><dd>P / Esc</dd></div>
+            </dl>
+          </section>
+
+          <div class="button-row">
+            <button id="pause-button" class="secondary-button" type="button">
+              暂停
+            </button>
+            <button id="restart-button" class="secondary-button" type="button">
+              重开
+            </button>
+          </div>
+        </aside>
+      </section>
+
+      <section class="touch-controls" aria-label="触控操作">
+        <button type="button" data-action="left" aria-label="左移">←</button>
+        <button type="button" data-action="rotate" aria-label="旋转">↻</button>
+        <button type="button" data-action="right" aria-label="右移">→</button>
+        <button type="button" data-action="down" aria-label="加速下落">↓</button>
+        <button type="button" data-action="drop" aria-label="硬降">⇣</button>
+      </section>
+
+      <footer>
+        <span>清空横行 · 提升等级 · 刷新纪录</span>
+        <span>VANILLA HTML / CSS / JS</span>
+      </footer>
+    </main>
+
+    <script src="game.js"></script>
+  </body>
+</html>
